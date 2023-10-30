@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Country;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\State>
@@ -36,7 +37,8 @@ class StateFactory extends Factory
                 'Morelos',
                 'Nayarit',
                 'Nuevo León',
-                'Oaxaca',])
+                'Oaxaca',]),
+            'country_id'=> Country::factory(),
         ];
     }
 }
