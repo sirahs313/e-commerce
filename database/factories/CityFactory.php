@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\State;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\City>
@@ -18,6 +19,7 @@ class CityFactory extends Factory
     {
         return [
             'name' => $this->faker->city,
+            'state_id'=>State::factory(),
         ];
     }
 }
