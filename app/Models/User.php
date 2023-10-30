@@ -20,6 +20,11 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'address' ,
+        'city',
+        'state',
+        'country',
+        'coupon_id',
         'password',
     ];
 
@@ -42,4 +47,25 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+    public function sales()
+    {
+    return $this->hasMany(Sale::class, 'user_id');
+    }
+    public function discount()
+    {
+        return $this->belongsTo(Coupon::class, 'discount_id');
+    }
+    public function country()
+    {
+        return $this->belongsTo(Country::class, 'country_id');
+    }
+    public function state()
+    {
+        return $this->belongsTo(State::class);
+    }
 }
